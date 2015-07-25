@@ -5,13 +5,39 @@
 
 #### 保存するindexファイルの構造
 
-*
+* indexファイルは名前をつけるようにする。
+- 例：index_1-1000.txt
+
+```
+id, image_id, image_filename, for_men_labal, for_woman_labal, [tag1, tag2, ...]
+
+```
+
+id ...
+
+image_id ...
+
+image_filename ...
+
+for_men_labal ...
+
+for_woman_labal ...
+
+tags ... 
+
+
+#### 追加したい機能
+
+* 重複画像のチェック
+* ランキングページの下までを自動で読み込む
+* 下のいろんなランキングページのクローリングに対応
+* 定期的に実行されるスクリプト
 
 #### 取得する元のURLについて
 
 - ランキングページを使用する．
-	* http://www.pixiv.net/ranking.php
-	* 以下、細かいランキングページも存在する．
+* http://www.pixiv.net/ranking.php
+* 以下、細かいランキングページも存在する．
 
 ```
 pixiv.text.today = '本日';
