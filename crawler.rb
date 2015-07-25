@@ -51,8 +51,7 @@ end
 
 def save_image(url, image_id)
     # ready filepath
-    fileName = image_id + ".jpg" #File.basename(url)
-    print fileName + ", "
+    fileName = image_id + ".jpg"
 
     dirName = File.expand_path(File.dirname($0))
     filePath = dirName + "/images/" + fileName
@@ -71,10 +70,10 @@ end
 def check_charcode(url)
     charset = nil
     html = open(url) do |f|
-      charset = f.charset # 文字種別を取得
-      f.read # htmlを読み込んで変数htmlに渡す
-  end
-  return html, charset
+        charset = f.charset # 文字種別を取得
+        f.read # htmlを読み込んで変数htmlに渡す
+    end
+    return html, charset
 end
 
 def crawl_imagepage(url)
@@ -82,9 +81,15 @@ def crawl_imagepage(url)
     # htmlをパース(解析)してオブジェクトを作成
     doc = Nokogiri::HTML.parse(html, nil, charset)
 
+    #
+    #doc.xpath('//section[@class="work-info"]').each do |node|
+    #    # 画像登録日
+    #    date = node.attribute('data-date').value
+    #    print date + ", "
+    #end
+
     tags = []
     doc.xpath('//li[@class="tag"]').each do |node|
-        # title
         tag = node.css('a.text').inner_text
         tags.push(tag)
     end
@@ -109,6 +114,14 @@ def crawl_toppage
         # 画像idの取得
         image_id = node.attribute('data-id').value
         print image_id + ", "
+
+        # ユーザidの取得
+        user_id = node.css('a.user-container.ui-profile-popup').attribute('data-user_id').value
+        print user_id + ", "
+
+        # 画像登録日
+        date = node.attribute('data-date').value
+        print date + ", "
 
         # 予備情報の取得
         rank = node.css('h1').inner_text
@@ -139,8 +152,3 @@ end
 if __FILE__ == $0
     crawl_toppage
 end
-
-
-
-
-

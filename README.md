@@ -6,10 +6,11 @@
 #### 保存するindexファイルの構造
 
 * indexファイルは名前をつけるようにする。
-- 例：index_1-1000.txt
+- 例：index_today_2015-07-24.txt
+- 例：index_maleRanking_2015-07-24.txt
 
 ```
-id, image_id, image_filename, for_men_labal, for_woman_labal, [tag1, tag2, ...]
+id, image_id, user_id, date, for_men_labal, for_woman_labal, [tag1, tag2, ...]
 
 ```
 
@@ -17,7 +18,9 @@ id ...
 
 image_id ...
 
-image_filename ...
+user_id ...
+
+date ... 
 
 for_men_labal ...
 
@@ -28,10 +31,22 @@ tags ...
 
 #### 追加したい機能
 
-* 重複画像のチェック
+##### 重大
+
+* 大きい画像を取得できるように変更
+
+* 画像管理クラス（重複画像のチェック等）
+- C++かPythonでC#,Pythonの学習に使えるもの
+
 * ランキングページの下までを自動で読み込む
+
+##### 適宜 
 * 下のいろんなランキングページのクローリングに対応
+
 * 定期的に実行されるスクリプト
+
+* １つの画像idに複数画像ある場合
+- id_p0.jpgのような感じ
 
 #### 取得する元のURLについて
 
