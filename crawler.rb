@@ -119,15 +119,14 @@ def crawl_toppage
         save_image(url, image_id)
 
         # labels (for men, for women)
-        print image_id + "0, 0, "
+        print "0, 0, "
 
         # リンクからタグ情報の取得
-        sub_node = doc.xpath('//div[@class="ranking-image-item"]')
-        link = sub_node.css('a').attribute('href').value
+        link = node.css('div.ranking-image-item a').attribute('href').value
         crawl_imagepage(top+link)
 
         print "\n"
-        break
+        #break
     end
 
     write_ini(uniqid)
